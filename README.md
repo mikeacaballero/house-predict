@@ -7,7 +7,7 @@ Using the [Ames housing dataset](https://www.kaggle.com/c/house-prices-advanced-
 ## Authors
 * **Phoebe Zhou** [Github](https://github.com/phoebezzz)
 * **John Yap** [Github](https://github.com/JohnYap)
-* **Henry Chau** [Github](github)
+* **Henry Chau** [Github](https://github.com/hbomber23)
 * **Mike Caballero** [Github](https://github.com/mikeacaballero)
 
 Updated: 21 May 2018
