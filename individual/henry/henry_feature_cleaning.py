@@ -73,6 +73,9 @@ ames['OpenPorchSF'] = ['OpenPorch_Yes' if x>0 else 'OpenPorch_No' for x in ames.
 ames['Enclosed_combined'] = (ames.EnclosedPorch + ames['3SsnPorch'] + ames.ScreenPorch)
 ames['Enclosed_combined'] = ['EnclosedPorch_Yes' if x >0 else 'EnclosedPorch_No' for x in ames.Enclosed_combined]
 
+ames.drop(columns = ['EnclosedPorch'], inplace=True)
+ames.drop(columns = ['3SsnPorch'], inplace=True)
+ames.drop(columns = ['ScreenPorch'], inplace=True)
 #ames[['EnclosedPorch','3SsnPorch','ScreenPorch','Enclosed_combined']]
 
 
