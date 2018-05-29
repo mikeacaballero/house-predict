@@ -19,6 +19,62 @@ ames = load.copy()
 #################
 
 # Phoebe
+# Drop columns not use
+ames.drop(columns=['MSSubClass','Street','Utilities','Condition2'])
+
+# MSZoning, Group-RL/RMH/FC
+ames['MSZoning'] = [x if x=="RL" else "RMH" if x in ['RM','RH'] else "FC" for x in ames.MSZoning]
+
+# LotFrontage-impute with mean
+ames.LotFrontage.fillna(ames.LotFrontage.mean(),inplace=True)
+
+# LotArea-impute with mean
+ames.LotArea.fillna(ames.LotFrontage.median(),inplace=True)
+
+# Alley, Group-Alley/NoAccess
+ames.Alley.fillna("NoAccess",inplace=True)
+ames['Alley']=[x if x=='NoAccess' else 'Alley' for x in ames.Alley]
+
+# LotShape, Group-Regular/Irregular
+ames['LotShape']=['Regular' if x =='Reg' else 'Irregular' for x in ames.LotShape]
+
+# LandContour, Group-Flat/Unflat
+ames['LandContour']=['Flat' if x=='Lvl' else 'Unflat' for x in ames.LandContour]
+
+# LotConfig, Group-Inside/CulDSac/Corner
+ames['LotConfig'] = [x if x in ['Inside','CulDSac'] else 'Corner' for x in ames.LotConfig]
+
+# LandSlope, Group-Gtl/NGtl
+ames['LandSlope'] = [x if x=='Gtl' else 'NGtl' for x in ames.LandSlope]
+
+# Neighborhood, Group-SAmes/NAmes/EAmes
+NAmes = ['NridgHt','NoRidge','Somerst','NWAmes','Blmngtn','Gilbert','StoneBr']
+EAmes = ['BrkSide','Edwards','OldTown','IDOTRR','Sawyer','NAmes','BrDale','NPkVill']
+SAmes = ['Veenker','Crawfor','ClearCr','CollgCr','SawyerW','Blueste','Timber','Mitchel','SWISU','MeadowV']
+ames['Neighborhood']=['NAmes' if n in NAmes else 'EAmes' if n in EAmes else 'SAmes' for n in ames.Neighborhood]
+
+# Condition1, Group-Norm and Pos v.s. Neg
+ames['Condition1Group'] = ['NormP' if x in ['PosN','PosA','Norm'] else 'Neg' for x in ames.Condition1]
+
+# BldgType, Group-OneFamily/Duplex/Townhouse
+ames['BldgType'] = ['OneFamily' if x=='1Fam' else 'Duplex' if x in ['2fmCon','Duplex'] else 'Townhouse' for x in ames.BldgType]
+
+# HouseStyle, Group-OneStory/OneStoryUp
+ames['HouseStyle'] = ['OneStory' if x in ['1Story','1.5Fin','1.5Unf'] else 'OneStoryUp' for x in ames.HouseStyle]
+
+# OverallQual, Group-LowQ/AvgQ/HighQ
+ames['OverallQual'] = ['LowQ' if x<=4 else 'AvgQ' if x in [5,6,7] else 'HighQ' for x in ames.OverallQual]
+
+# OverallCond, Group-BadC/AvgC/GoodC
+ames['OverallCond'] = ['BadC' if x<=4 else 'AvgC' if x in [5,6,7] else 'GoodC' for x in ames.OverallCond]
+
+# YearBuilt
+ames['YearBuilt'] =2010 - ames['YearBuilt']
+
+# YearRemodAdd
+ames['remod']=ames['YearRemodAdd']-ames['YearBuilt']
+ames['YearRemodAddGroup']=['NoRemod' if x==0 else 'Remod' for x in ames.remod]
+ames.drop(columns=['remod'])
 
 #################
 ### VAR 21-40 ###
