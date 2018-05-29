@@ -54,7 +54,7 @@ SAmes = ['Veenker','Crawfor','ClearCr','CollgCr','SawyerW','Blueste','Timber','M
 ames['Neighborhood']=['NAmes' if n in NAmes else 'EAmes' if n in EAmes else 'SAmes' for n in ames.Neighborhood]
 
 # Condition1, Group-Norm and Pos v.s. Neg
-ames['Condition1Group'] = ['NormP' if x in ['PosN','PosA','Norm'] else 'Neg' for x in ames.Condition1]
+ames['Condition1'] = ['NormP' if x in ['PosN','PosA','Norm'] else 'Neg' for x in ames.Condition1]
 
 # BldgType, Group-OneFamily/Duplex/Townhouse
 ames['BldgType'] = ['OneFamily' if x=='1Fam' else 'Duplex' if x in ['2fmCon','Duplex'] else 'Townhouse' for x in ames.BldgType]
