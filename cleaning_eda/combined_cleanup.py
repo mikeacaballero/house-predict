@@ -668,7 +668,7 @@ ames.drop(columns = ['PoolQC'], inplace=True)
 # 5 categories with values listed above.  Creating feature as: has_fence vs no_fence
 
 ames.Fence.fillna('NF', inplace = True)
-ames.Fence = ['no_fence' if fen in ['NF'] else 'has_fence' for fen in ames.Fence]
+ames.Fence = ['no_fence' if fen in ['NF' , 'NA'] else 'has_fence' for fen in ames.Fence]
 
 #MiscFeature: Miscellaneous feature not covered in other categories
 #		
