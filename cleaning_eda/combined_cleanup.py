@@ -143,7 +143,7 @@ ames.drop(columns = ['BsmtUnfSF'], inplace = True)
 ### Variable: TotalBsmtSF
 # Problems: small bimodal hump from zero basements, ought to be corrected
 # Solution: define bsmt sizes in quartiles, using quartile splits from training set
-ames.TotalBsmtSF = ['small' if sf < 795.75 else 'mlow' if sf < 991.50 else 'mhigh' if sf < 1298.25 else 'large' for sf in ames.TotalBsmtSF]
+ames.TotalBsmtSF = ['large' if sf > 1298.25 else 'mhigh' if sf > 991.50 else 'mlow' if sf > 795.75 else 'small' for sf in ames.TotalBsmtSF]
 # Alternative: scale using Robust Scaler?
 
 ### Variable: Heating
@@ -168,6 +168,12 @@ ames.HeatingQC = ['high' if hqc in ['Ex', 'Gd'] else 'low' for hqc in ames.Heati
 
 # Henry
 
+
+#################
+### SalePrice ###
+#################
+
+ames.SalePrice = np.log(ames.SalePrice)
 
 ##############
 ### OUTPUT ###
