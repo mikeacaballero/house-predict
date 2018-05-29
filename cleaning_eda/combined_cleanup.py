@@ -20,7 +20,7 @@ ames = load.copy()
 
 # Phoebe
 # Drop columns not use
-ames.drop(columns=['MSSubClass','Street','Utilities','Condition2'])
+ames.drop(columns=['MSSubClass','Street','Utilities','Condition2'], inplace=True)
 
 # MSZoning, Group-RL/RMH/FC
 ames['MSZoning'] = [x if x=="RL" else "RMH" if x in ['RM','RH'] else "FC" for x in ames.MSZoning]
@@ -324,6 +324,8 @@ def totalbaths(cols):
         
 ames['FullBaths'] = ames[['Id','BsmtFullBath','FullBath']].apply(totalbaths,axis=1)
 
+ames.drop(['BsmtFullBath','FullBath'], axis = 1, inplace = True)
+
 def totalhalfbaths(cols):
     """
     Arguments:
@@ -351,6 +353,8 @@ def totalhalfbaths(cols):
             return '>=1HalfBaths'
         
 ames['HalfBaths'] = ames[['Id','BsmtHalfBath','HalfBath']].apply(totalhalfbaths,axis=1)
+
+ames.drop(['BsmtHalfBath','HalfBath'], axis = 1, inplace = True)
 
 def bedroomabvgr(cols):
     """
