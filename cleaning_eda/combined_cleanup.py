@@ -73,8 +73,8 @@ ames['YearBuilt'] =2010 - ames['YearBuilt']
 
 # YearRemodAdd
 ames['remod']=ames['YearRemodAdd']-ames['YearBuilt']
-ames['YearRemodAddGroup']=['NoRemod' if x==0 else 'Remod' for x in ames.remod]
-ames.drop(columns=['remod'])
+ames['YearRemodAdd']=['NoRemod' if x==0 else 'Remod' for x in ames.remod]
+ames.drop(columns=['remod'],inplace=True)
 
 #################
 ### VAR 21-40 ###
