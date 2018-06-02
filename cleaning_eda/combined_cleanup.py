@@ -789,12 +789,6 @@ ames.SaleType = ['deed' if stype in ['WD', 'CWD','VWD'] else 'non_deed' for styp
 ames.SaleCondition = ['normal' if scond in ['Normal'] else 'not_normal' for scond in ames.SaleCondition]
 ####end of Henry's section
 
-#################
-### SalePrice ###
-#################
-
-ames.SalePrice = np.log(ames.SalePrice)
-
 ##############
 ### OUTPUT ###
 ##############
