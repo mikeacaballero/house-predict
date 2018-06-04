@@ -2,7 +2,7 @@
 
 ## Project Scope
 
-Using the [Ames housing dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques) we will predict sale prices for homes. We will include additional summary details here as the project unfolds.
+Using the [Ames housing dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques) we will predict sale prices for homes. We employed extensive EDA and feature engineering to craft our Kaggle submission.
 
 ## Authors
 * **Phoebe Zhou** [Github](https://github.com/phoebezzz)
@@ -10,4 +10,7 @@ Using the [Ames housing dataset](https://www.kaggle.com/c/house-prices-advanced-
 * **Henry Chau** [Github](https://github.com/hbomber23)
 * **Mike Caballero** [Github](https://github.com/mikeacaballero)
 
-Updated: 21 May 2018
+## Presentation
+[Google Slides Presentation](https://docs.google.com/presentation/d/1FR756D5rFGn7OvwQ8ORMsoDtSbjlilpYagSd-XzkgOc/edit#slide=id.p)
+
+Updated: 3 June 2018
